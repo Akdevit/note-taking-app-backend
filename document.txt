@@ -1,0 +1,121 @@
+
+
+### 1. **User Authentication Endpoints**
+
+#### **POST /api/users/register**
+- **Description**: Register a new user.
+- **Request Body**: 
+  ```json
+  {
+    "name": "userName",
+    "email": "user@example.com",
+    "password": "password123"
+  }
+  ```
+- **Response**: 
+  ```json
+  {
+    "token": "JWT_TOKEN",
+    "user": { "id": "USER_ID", "name": "userName", "email": "user@example.com" }
+  }
+  ```
+  
+#### **POST /api/users/login**
+- **Description**: Login a user and return a JWT token.
+- **Request Body**: 
+  ```json
+  {
+    "email": "user@example.com",
+    "password": "password123"
+  }
+  ```
+- **Response**: 
+  ```json
+  {
+    "token": "JWT_TOKEN",
+    "user": { "id": "USER_ID", "name": "userName", "email": "user@example.com" }
+  }
+  ```
+
+### 2. **Note CRUD Endpoints**
+
+#### **GET /api/notes**
+- **Description**: Get all notes for the authenticated user.
+- **Response**: 
+  ```json
+  [
+    {
+      "id": "NOTE_ID",
+      "title": "Note Title",
+      "content": "Note Content",
+      "color": "#ffffff",
+      "user": "USER_ID"
+    }
+  ]
+  ```
+
+#### **POST /api/notes**
+- **Description**: Create a new note for the authenticated user.
+- **Request Body**: 
+  ```json
+  {
+    "title": "Note Title",
+    "content": "Note Content",
+    "color": "#ffffff"
+  }
+  ```
+- **Response**: 
+  ```json
+  {
+    "id": "NOTE_ID",
+    "title": "Note Title",
+    "content": "Note Content",
+    "color": "#ffffff",
+    "user": "USER_ID"
+  }
+  ```
+
+#### **GET /api/notes/:id**
+- **Description**: Get a single note by its ID for the authenticated user.
+- **Response**: 
+  ```json
+  {
+    "id": "NOTE_ID",
+    "title": "Note Title",
+    "content": "Note Content",
+    "color": "#ffffff",
+    "user": "USER_ID"
+  }
+  ```
+
+#### **PUT /api/notes/:id**
+- **Description**: Update a specific note by its ID for the authenticated user.
+- **Request Body**: 
+  ```json
+  {
+    "title": "Updated Title",
+    "content": "Updated Content",
+    "color": "#ff0000"
+  }
+  ```
+- **Response**: 
+  ```json
+  {
+    "id": "NOTE_ID",
+    "title": "Updated Title",
+    "content": "Updated Content",
+    "color": "#ff0000",
+    "user": "USER_ID"
+  }
+  ```
+
+#### **DELETE /api/notes/:id**
+- **Description**: Delete a specific note by its ID for the authenticated user.
+- **Response**: 
+  ```json
+  {
+    "message": "Note removed"
+  }
+  ```
+
+---
